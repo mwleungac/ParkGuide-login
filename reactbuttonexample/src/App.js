@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import Navigation from './components/Navbar';
+import Navigation from './NavigationBar/Navbar';
 import Routes from './Routes';
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
+      {/* <Navigation /> */}
       <Routes />
     </div>
   );
