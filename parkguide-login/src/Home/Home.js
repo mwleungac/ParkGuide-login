@@ -20,7 +20,6 @@ export default class Home extends Component {
             <Facebook/>
             {/* <Button variant="btn btn-success" onClick={() => history.push('/Test')}>Click button to Testpage</Button> */}
           
-          
           </form>
           
 
