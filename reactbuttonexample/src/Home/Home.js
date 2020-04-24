@@ -3,15 +3,20 @@ import { Button } from 'react-bootstrap';
 import history from './../history';
 import "./Home.css";
 
+import Facebook from './../components/Facebook';
+
 export default class Home extends Component {
   render() {
     return (
       <div className="Home">
         <div className="lander">
           <h1>Home page</h1>
-          <p>A simple app showing react button click navigation</p>
+          <p>Testing</p>
+       
           <form>
-            <Button variant="btn btn-success" onClick={() => history.push('/Test')}>Click button to view products</Button>
+            <Facebook/>
+            <Button variant="btn btn-success" onClick={() => history.push('/Test')}>Click button to Testpage</Button>
+
           </form>
         </div>
       </div>
