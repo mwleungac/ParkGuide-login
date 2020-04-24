@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Routes from './Routes';
+import Navigation from './../src/NavigationBar/Navbar'
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   if(isLogin){
     return (
     <div className="App">
-      {/* <Navigation /> */}
+      <Navigation />
       <Routes />
       
     </div>

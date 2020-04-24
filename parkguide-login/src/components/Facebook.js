@@ -30,7 +30,6 @@ export default class Facebook extends Component {
 
     render() {
         let fbContent
-
         if(this.state.isLoggedIn){
             
             fbContent = (
