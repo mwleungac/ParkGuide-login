@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Facebook from './../components/Facebook';
 
 export default class Testpage extends Component {
     render() {

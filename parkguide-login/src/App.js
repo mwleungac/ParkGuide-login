@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Routes from './Routes';
 import Navigation from './../src/NavigationBar/Navbar'
+import Facebook from './components/Facebook';
 
 
 function App() {
