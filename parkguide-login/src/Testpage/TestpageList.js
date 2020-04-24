@@ -7,13 +7,16 @@ export default class TestpageList extends Component {
         super(props)
 
         this.state={
-            books:[]
+            books: []
         }
     }
 
     componentDidMount(){
-        axios.get("http://localhost:8080/rest/parkguide/members/00000001")
-        .then(response => console.log(response.data))
+        axios.get("http://localhost:8080/rest/parkguide/parking-lots")
+         .then(response => {
+            this.setState({books: response.data})
+
+        })
 
     }
 
@@ -21,6 +24,9 @@ export default class TestpageList extends Component {
     render() {
         return (
             <div>
+                <table>
+                    <td>{this.state.books.length} lots retrieved</td>
+                </table>
                 
             </div>
         )
