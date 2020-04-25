@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import axios from 'axios'
 
 export default class Testpage extends Component {
     constructor(props) {
@@ -11,8 +12,9 @@ export default class Testpage extends Component {
     }
 
     initialState = {
-        title: '',
-        author: ''
+        id: '',
+        fullName: '',
+        carLicense: ''
     }
 
     resetBook = () => {
@@ -22,8 +24,23 @@ export default class Testpage extends Component {
 
 
     submitbook(event) {
-        alert('Title: ' + this.state.title + ', Author: ' + this.state.author)
+       
         event.preventDefault();
+
+        const book = {
+            id: this.state.id,
+            fullName: this.state.fullName,
+            carLicense: this.state.carLicense
+        }
+
+        axios.post("http://localhost:8080/rest/parkguide/members", book)
+        // .then (response => console.log(response.data))
+        .then(response => {
+            if(response.data != null){
+                this.setState(this.initialState)
+                alert('Saved successfully')
+            }
+        })
     }
 
     bookChange(event) {
@@ -33,15 +50,16 @@ export default class Testpage extends Component {
     }
 
     render() {
-        const { title, author } = this.state
+        const { id, fullName, carLicense } = this.state
 
         return (
             <div>
                 <h1>This is a Testpage</h1>
 
                 <form onReset={this.resetBook} onSubmit={this.submitbook} id="bookFormId">
-                    <Form.Control required autoComplete="off" name="title" value={title} onChange={this.bookChange} type="text" placeholder="Enter title"></Form.Control>
-                    <Form.Control autoComplete="off" name="author" value={author} onChange={this.bookChange} type="text" placeholder="Enter author"></Form.Control>
+                    <Form.Control required autoComplete="off" name="id" value={id} onChange={this.bookChange} type="text" placeholder="Enter id"></Form.Control>
+                    <Form.Control autoComplete="off" name="fullName" value={fullName} onChange={this.bookChange} type="text" placeholder="Enter name"></Form.Control>
+                    <Form.Control autoComplete="off" name="carLicense" value={carLicense} onChange={this.bookChange} type="text" placeholder="Enter car license"></Form.Control>
                     <Button size="sm" type="submit">Submit</Button>
                     {'  '}
                     <Button size="sm" type="reset">Reset</Button>
