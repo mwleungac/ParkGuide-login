@@ -34,7 +34,7 @@ export default class Testpage extends Component {
         }
 
         axios.post("http://localhost:8080/rest/parkguide/members", book)
-        // .then (response => console.log(response.data))
+        //  .then (response => console.log(response.data))
         .then(response => {
             if(response.data != null){
                 this.setState(this.initialState)
@@ -58,8 +58,8 @@ export default class Testpage extends Component {
 
                 <form onReset={this.resetBook} onSubmit={this.submitbook} id="bookFormId">
                     <Form.Control required autoComplete="off" name="id" value={id} onChange={this.bookChange} type="text" placeholder="Enter id"></Form.Control>
-                    <Form.Control autoComplete="off" name="fullName" value={fullName} onChange={this.bookChange} type="text" placeholder="Enter name"></Form.Control>
-                    <Form.Control autoComplete="off" name="carLicense" value={carLicense} onChange={this.bookChange} type="text" placeholder="Enter car license"></Form.Control>
+                    <Form.Control reuired autoComplete="off" name="fullName" value={fullName} onChange={this.bookChange} type="text" placeholder="Enter name"></Form.Control>
+                    <Form.Control required autoComplete="off" name="carLicense" value={carLicense} onChange={this.bookChange} type="text" placeholder="Enter car license"></Form.Control>
                     <Button size="sm" type="submit">Submit</Button>
                     {'  '}
                     <Button size="sm" type="reset">Reset</Button>
