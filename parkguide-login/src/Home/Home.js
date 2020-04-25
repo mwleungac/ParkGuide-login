@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Home.css";
-
+import { Button } from 'react-bootstrap';
 import Facebook from './../components/Facebook';
-
+import history from './../history'
 
 
 export default class Home extends Component { 
@@ -16,14 +16,9 @@ export default class Home extends Component {
           <h1>Home page</h1>
           <p></p>
        
-          <form>
-            <Facebook/>
-            {/* <Button variant="btn btn-success" onClick={() => history.push('/Test')}>Click button to Testpage</Button> */}
+          <Facebook/>
+          {/* <Button variant="btn btn-success" onClick={() => history.push('/Testpage')}>Register</Button> */}
           
-          </form>
-          
-
-
         </div>
       </div>
     );
