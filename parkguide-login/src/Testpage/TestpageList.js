@@ -3,21 +3,20 @@ import axios from 'axios'
 
 
 export default class TestpageList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
-        this.state={
+        this.state = {
             books: []
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         axios.get("http://localhost:8080/rest/parkguide/parking-lots")
-         .then(response => {
-            this.setState({books: response.data})
-
-        })
-
+            .then(response => response.data)
+            .then(data => {
+                this.setState({ books: data })
+            })
     }
 
 
@@ -25,9 +24,31 @@ export default class TestpageList extends Component {
         return (
             <div>
                 <table>
-                    <td>{this.state.books.length} lots retrieved</td>
+                    <thead>
+                        <td>No</td>
+                        <td>Name</td>
+                        <td>Location</td>
+                        <td>Vacancy</td>
+                    </thead>
+                    {
+                        this.state.books.length === 0 ?
+                            <tr align="center">
+                                <td>Lots available</td>
+                            </tr> :
+                            this.state.books.map((book) => (
+                                <tr key={book.id}>
+                                    <td>{book.id}</td>
+                                    <td>{book.name}</td>
+                                    <td>{book.location}</td>
+                                    <td>{book.vacancy}</td>
+                                </tr>
+
+                            ))}
                 </table>
-                
+
+                {/* <p>{this.state.books.length} lots retrieved</p> */}
+
+
             </div>
         )
     }
